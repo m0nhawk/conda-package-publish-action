@@ -4,8 +4,8 @@ set -ex
 set -o pipefail
 
 go_to_build_dir() {
-    if [ ! -z $SUBDIR ]; then
-        cd $SUBDIR
+    if [ ! -z $INPUT_SUBDIR ]; then
+        cd $INPUT_SUBDIR
     fi
 }
 
@@ -25,7 +25,7 @@ check_if_meta_yaml_file_exists() {
 
 upload_package(){
     conda config --set anaconda_upload yes
-    anaconda login --username $ANACONDA_USERNAME --password $ANACONDA_PASSWORD
+    anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     conda build .
     anaconda logout
 }
