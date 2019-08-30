@@ -7,7 +7,7 @@ branding:
 inputs: 
   subDir:
     description: 'Sub-directory with project'
-    default: ''
+    default: '.'
   AnacondaUsername:
     description: 'Anaconda Username'
   AnacondaPassword:
@@ -15,7 +15,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.subDir }}
-    - ${{ inputs.AnacondaUsername }}
-    - ${{ inputs.AnacondaPassword }}
